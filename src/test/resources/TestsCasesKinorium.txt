@@ -1,0 +1,31 @@
+NAME: Кинориум, при переходе из ТОП-500, через поиск фильма {TEST DATA} в результатах есть поле Movies
+TEST DATA: [The Shawshank Redemption, The Green Mile, Forrest Gump, Pulp Fiction, Back to the Future, Fight Club]
+PRIORITY: Minor
+PRECONDITIONS:
+- Открыть браузер
+- Пройти по ссылке https://en.kinorium.com/collections/kinorium/300/
+- Ввести в поиске {TEST DATA}
+- Находимся на странице с результатами поиска
+STEPS:
+- Проверить что в результатах поиска {TEST DATA} есть поле Movies
+EXPECTED RESULT:
+- В результатх поиска {TEST DATA} есть поле Movies
+
+
+
+NAME: Кинориум, при переходе из ТОП-500, через поиск фильма {TEST DATA[0]} в результатах есть поле жанр {TEST DATA[1]}
+TEST DATA: [[The Green Mile / Drama],
+            [Inception  / Action],
+            [Pulp Fiction / Thriller],
+            [Fight Club / Drama]
+            ]
+PRIORITY: Minor
+PRECONDITIONS:
+- Открыть браузер
+- Пройти по ссылке https://en.kinorium.com/collections/kinorium/300/
+- Ввести в поиске {TEST DATA[0]}
+- Находимся на странице с результатами поиска
+STEPS:
+- Проверить что в результатах поиска {TEST DATA[0]} есть поле жанр {TEST DATA[1]}
+EXPECTED RESULT:
+- В результатх поиска {TEST DATA} есть поле Movies

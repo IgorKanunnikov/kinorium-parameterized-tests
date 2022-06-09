@@ -22,10 +22,10 @@ public class ParamsTest extends TestBase {
             "Pulp Fiction", "Back to the Future", "Fight Club"})
     @ParameterizedTest(name = "Кинориум, при переходе из ТОП-500, через поиск фильма {0} в результатах есть поле Movies")
     void ValueTest(String testData) {
-        kinoPage.openPage();
-        kinoPage.topMenuClick();
-        kinoPage.topMenuSearch(testData);
-        kinoPage.titleMovieResult("Movies");
+        kinoPage.openPage()
+        .topMenuClick()
+        .topMenuSearch(testData)
+        .titleMovieResult("Movies");
     }
 
     // @CsvFileSource(resources = "test_data/films.csv")
@@ -37,10 +37,10 @@ public class ParamsTest extends TestBase {
     })
     @ParameterizedTest(name = "Кинориум, при переходе из ТОП-500, через поиск фильма {0} в результатах есть поле жанр {1}")
     void CsvTest(String searchData, String expectedResult) {
-        kinoPage.openPage();
-        kinoPage.topMenuClick();
-        kinoPage.topMenuSearch(searchData);
-        kinoPage.genreListResult(expectedResult);
+        kinoPage.openPage()
+        .topMenuClick()
+        .topMenuSearch(searchData)
+        .genreListResult(expectedResult);
     }
 
     static Stream<Arguments> complexDataProvider() {
@@ -53,19 +53,19 @@ public class ParamsTest extends TestBase {
     @MethodSource(value = "complexDataProvider")
     @ParameterizedTest(name = "Кинориум, при переходе из ТОП-500, через поиск фильма {0} в результатах есть поле жанр Movies")
     void MethodTest(String searchData) {
-        kinoPage.openPage();
-        kinoPage.topMenuClick();
-        kinoPage.topMenuSearch(searchData);
-        kinoPage.titleMovieResult("Movies");
+        kinoPage.openPage()
+        .topMenuClick()
+        .topMenuSearch(searchData)
+        .titleMovieResult("Movies");
     }
 
     @EnumSource(Movies.class)
     @ParameterizedTest()
     void EnumTest(Movies movies) {
-        kinoPage.openPage();
-        kinoPage.topMenuClick();
-        kinoPage.topMenuSearch(movies.desc);
-        kinoPage.titleMovieResult("Movies");
+        kinoPage.openPage()
+        .topMenuClick()
+        .topMenuSearch(movies.desc)
+        .titleMovieResult("Movies");
 
     }
 }
